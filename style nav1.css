@@ -1,0 +1,843 @@
+html {
+    scroll-behavior: smooth;
+}
+/* Importation de la police Playfair Display */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&display=swap');
+
+/* Appliquer partout */
+body {
+  font-family: 'Playfair Display', serif;
+  color: #111; /* Texte bien lisible */
+}
+
+/* Grands titres */
+h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: -1px;
+  margin-bottom: 16px;
+}
+
+h2 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+/* Sous-titres */
+h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+h4 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* Paragraphe & texte */
+p, li {
+    font-family: 'Poppins', serif;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+/* Pour éviter que tout paraisse tassé sur petits écrans */
+@media (max-width: 768px) {
+  h1 { font-size: 2.2rem; }
+  h2 { font-size: 1.8rem; }
+  h3 { font-size: 1.5rem; }
+  p, li { font-size: 1rem; }
+}
+
+nav {
+    background-color: #ffffff; /* Light gray background for the ribbon */
+    padding: 15px 20px; /* Keep some vertical padding */
+    display: flex; /* Enable flexbox for alignment */
+    align-items: center; /* Vertically align items in the center */
+    border-bottom: 1px solid #ccc; /* Add a subtle bottom border */
+    margin: 0; /* Remove default margins */
+    position: fixed;      /* Ajouté : fixe le nav en haut */
+    top: 0;               /* Ajouté : colle en haut */
+    left: 0;              /* Ajouté : colle à gauche */
+    width: 100%;          /* Ajouté : prend toute la largeur */
+    z-index: 1100;        /* Ajouté : au-dessus du menu déroulant */
+}
+
+nav img {
+    height: 60px; /* Adjust the image height as needed */
+}
+
+.nav-buttons {
+    margin-left: auto; /* Pousse les boutons à droite */
+    display: flex;
+    align-items: center;
+    gap: 1px; /* Espace entre les boutons */
+}
+
+nav button {
+    font-size: 16px;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: transparent; /* Make the button background transparent */
+}
+
+/* Style for the EN/FR button */
+nav button:nth-child(2) { /* Select the second button */
+    margin-left: auto; /* Push it to the right */
+    color: #333; /* Keep the text color */
+}
+
+/* Style for the Menu button */
+nav button:nth-child(3) {
+    color: rgb(0, 0, 0);
+    margin-left: 10px; /* Juste un petit espace avec EN/FR */
+    /* SUPPRIME margin-right ou padding trop grand si tu en as */
+}
+
+
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 70px; /* Ajuste selon la hauteur de ta nav */
+    right: 20px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    min-width: 150px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    z-index: 1000;
+    flex-direction: column;
+}
+
+.dropdown-menu a {
+    padding: 12px 16px;
+    text-decoration: none;
+    color: #333;
+    display: block;
+}
+
+.dropdown-menu a:hover {
+    background: #f0f0f0;
+}
+
+/* Affiche le menu déroulant au survol du bouton menu ou du menu lui-même */
+.menu-button:hover + #dropdown-menu,
+#dropdown-menu:hover {
+    display: flex;
+}
+
+/* Tu peux supprimer ou ignorer la classe .show si tu utilises seulement le survol */
+.dropdown-menu.show {
+    display: flex;
+}
+
+body {
+    margin: 0; /* Ensure the body also has no default margins */
+    padding-top: 90px; /* Ajouté : espace égal à la hauteur du nav */
+}
+
+article#formation {
+    
+    max-width: 700px;
+    margin: 40px auto 0 auto; /* centre l'article et ajoute un espace en haut */
+    padding: 24px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.plus-btn {
+    margin-left: 10px;
+    font-size: 22px;
+    background: transparent;   /* Pas de fond */
+    color: #0074d9;            /* Le + devient bleu */
+    border: none;
+    border-radius: 50%;          /* Rond */
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    vertical-align: middle;
+    transition: color 0.2s;
+    box-shadow: none;            /* Enlève toute ombre/gris */
+    padding: 0;
+    line-height: 1;
+}
+.plus-btn:hover {
+    color: #005fa3;            /* Bleu plus foncé au survol */
+    background: transparent;
+}
+article#partenaires {
+    text-align: center;
+}
+
+.h1 {
+    text-decoration: none;
+    border-bottom: 4px solid #0074d9; /* mince rectangle bleu sous le texte */
+    display: inline-block; /* La ligne ne fait que la largeur du texte */
+    margin-bottom: 24px; /* Espace sous le h1 */
+    text-align: center;
+    font-family: 'Clash Display', Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    /* Supprime width: 100% et display: block */
+}
+
+article#alumnis {
+    
+    max-width: 700px;
+    margin: 40px auto 0 auto; /* centre l'article et ajoute un espace en haut */
+    padding: 24px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+#alumnis {
+  max-width: 1000px;
+  margin: 40px auto 0 auto;
+  padding: 24px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  padding: 20px 10px;
+  transition: transform 0.5s ease;
+  scroll-behavior: smooth;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.alumni-card {
+  min-width: 250px;
+  background: #fefefe;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  flex-shrink: 0;
+  font-family: 'Playfair Display', serif;
+  text-align: center;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.85);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  font-size: 20px;
+  z-index: 10;
+  transition: background-color 0.2s;
+}
+.carousel-btn:hover {
+  background-color: rgba(0, 116, 217, 0.8);
+  color: white;
+}
+.carousel-btn.left {
+  left: 10px;
+}
+.carousel-btn.right {
+  right: 10px;
+}
+.alumni-card img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  border: 3px solid #0074d9;
+}
+
+
+article#a p {
+    text-align: center;
+}
+
+article#a-propos {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f4f8;
+    color: #333;
+    line-height: 1.6;
+    
+}
+
+
+article#a-propos section {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+article#a-propos .card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 25px;
+    margin-bottom: 30px;
+    animation: slideInUp 0.8s ease forwards;
+    opacity: 0;
+}
+
+article#a-propos .card h2 {
+    color: #003366;
+    margin-bottom: 15px;
+}
+
+article#a-propos .card p,
+article#a-propos .card ul,
+article#a-propos .card ol {
+    animation: fadeInLeft 1s ease forwards;
+    opacity: 0;
+}
+
+article#a-propos .card ul,
+article#a-propos .card ol {
+    margin-left: 20px;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Délais d'animation */
+article#a-propos .card:nth-child(1) { animation-delay: 0.3s; }
+article#a-propos .card:nth-child(2) { animation-delay: 0.5s; }
+article#a-propos .card:nth-child(3) { animation-delay: 0.7s; }
+article#a-propos .card:nth-child(4) { animation-delay: 0.9s; }
+article#a-propos .card p,
+article#a-propos .card ul,
+article#a-propos .card ol {
+    animation-delay: 1.2s;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 1500px;      /* Largeur maximale plus grande */
+    width: 100%;           /* Prend toute la largeur possible */
+    margin: 0 auto;        /* Centre le main horizontalement */
+    padding: 0px 16px;    /* Ajoute un peu d'espace autour */
+    min-height: 100vh; /* vh = viewport height */
+    background-image: url('https://lh3.googleusercontent.com/p/AF1QipMCJW0ByLygX79wVEvMahwcWgrZ7l9LFpHEkVIK=s1360-w1360-h1020-rw');
+    background-size: cover;        /* L'image couvre tout le main */
+    background-position: center;   /* Centrée */
+    background-repeat: no-repeat; 
+}
+main {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+main h1, main h2, main h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+main p, main li {
+  font-size: 20px;
+  color: #f0f0f0;
+  max-width: 800px;
+}
+
+main ul {
+  gap: 32px; /* un peu plus espacé */
+}
+
+main ul li a {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 100vw;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 32px 16px;
+  z-index: 1;
+  overflow: hidden; /* empêche le débordement du fond flou */
+}
+
+main::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://lh3.googleusercontent.com/p/AF1QipMCJW0ByLygX79wVEvMahwcWgrZ7l9LFpHEkVIK=s1360-w1360-h1020-rw");
+  background-size: cover;
+  background-position: center;
+  filter: blur(10px) brightness(0.7);
+  z-index: -1;
+}
+
+/* Optionnel : ajoute un filtre bleuté */
+main::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 102, 204, 0.3); /* un voile bleu semi-transparent */
+  z-index: -1;
+}
+
+main {
+    color: #fff;
+}
+main a {
+    color: #fff;
+}
+main a:hover {
+    color: #0074d9;
+}
+main ul {
+    display: flex;
+    justify-content: center; /* Centre horizontalement */
+    gap: 24px;               /* Espace entre les éléments */
+    list-style: none;        /* Enlève les puces */
+    padding: 0;
+    margin: 24px 0;
+}
+
+
+
+main ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    transition: color 0.2s, border-bottom 0.2s;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 2px;
+}
+
+main ul li a:hover {
+   opacity: 1; /* Soulignement bleu au survol */
+}
+.formation-content {
+  display: none;
+  margin-top: 10px;
+}
+
+.plus-btn {
+  font-size: 20px;
+  margin-left: 10px;
+  background: transparent;
+  border: none;
+  color: #0074d9;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  transition: color 0.2s;
+}
+.plus-btn:hover {
+  color: #005fa3;
+}
+.content {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+
+.content.show {
+  max-height: 500px; /* doit être plus grand que le contenu réel */
+  opacity: 1;
+}
+
+.site-footer {
+  background-color: #003366;
+  color: #ffffff;
+  padding: 60px 20px;
+  font-family: 'Clash Display', 'Poppins', sans-serif;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-brand {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.footer-logo {
+  width: 120px;
+  margin-bottom: 10px;
+}
+
+.footer-description {
+  font-size: 16px;
+  opacity: 0.8;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.footer-column {
+  flex: 1 1 200px;
+  margin: 10px;
+}
+
+.footer-column h4 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.footer-column ul li a:hover {
+  opacity: 1;
+}
+
+.footer-socials {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.footer-socials a {
+  margin: 0 10px;
+  display: inline-block;
+}
+
+.footer-socials img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1);
+  transition: transform 0.3s;
+}
+
+.footer-socials a:hover img {
+  transform: scale(1.1);
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+#debouches * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+#debouches {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #eef2f7;
+  color: #333;
+  padding: 20px;
+}
+
+
+
+#debouches section {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+#debouches .card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  padding: 25px;
+  margin-bottom: 30px;
+  animation: slideInUp 0.8s ease forwards;
+  opacity: 0;
+  transition: transform 0.3s;
+}
+
+#debouches .card:hover {
+  transform: translateY(-5px);
+}
+
+#debouches .card h2 {
+  color: #002b5b;
+  margin-bottom: 15px;
+  animation: fadeInDown 1s ease forwards;
+  opacity: 0;
+}
+
+#debouches .card p,
+#debouches .card ul,
+#debouches .card ol {
+  animation: fadeInLeft 1s ease forwards;
+  opacity: 0;
+}
+
+#debouches .card ul,
+#debouches .card ol {
+  margin-left: 20px;
+  line-height: 1.8;
+}
+
+/* Animation delays for staggered effect */
+#debouches .card:nth-child(1) { animation-delay: 0.3s; }
+#debouches .card:nth-child(2) { animation-delay: 0.5s; }
+#debouches .card:nth-child(3) { animation-delay: 0.7s; }
+#debouches .card:nth-child(4) { animation-delay: 0.9s; }
+#debouches .card:nth-child(5) { animation-delay: 1.1s; }
+#debouches .card:nth-child(6) { animation-delay: 1.3s; }
+#debouches .card:nth-child(7) { animation-delay: 1.5s; }
+
+#debouches .card h2 {
+  animation-delay: 1.1s;
+}
+
+#debouches .card p,
+#debouches .card ul,
+#debouches .card ol {
+  animation-delay: 1.3s;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-50px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInUp {
+  from { opacity: 0; transform: translateY(50px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media(max-width: 768px) {
+  #debouches > h1 {
+    font-size: 36px;
+  }
+  #debouches section {
+    padding: 10px;
+  }
+}
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+
+main h1 {
+    animation: fadeInDown 1s ease forwards;
+    animation-delay: 0.3s;
+    opacity: 0; 
+}
+
+main h2 {
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 0.6s;
+    opacity: 0;
+}
+
+main p {
+    animation: slideInLeft 1s ease forwards;
+    animation-delay: 0.9s;
+    opacity: 0;
+}
+
+main ul {
+    animation: slideInRight 1s ease forwards;
+    animation-delay: 1.2s;
+    opacity: 0;
+}
+
+#a-propos h1 {
+    animation: fadeInDown 1s ease forwards;
+    animation-delay: 0.2s;
+    opacity: 0;
+}
+
+#a-propos .card:nth-child(odd) {
+    animation: slideInLeft 0.8s ease forwards;
+    opacity: 0;
+}
+
+#a-propos .card:nth-child(even) {
+    animation: slideInRight 0.8s ease forwards;
+    opacity: 0;
+}
+
+#a-propos .card:nth-child(1) { animation-delay: 0.4s; }
+#a-propos .card:nth-child(2) { animation-delay: 0.6s; }
+#a-propos .card:nth-child(3) { animation-delay: 0.8s; }
+#a-propos .card:nth-child(4) { animation-delay: 1.0s; }
+
+#debouches h1 {
+    animation: fadeInDown 1s ease forwards;
+    animation-delay: 0.2s;
+    opacity: 0;
+}
+
+#debouches .card {
+    animation: fadeInUp 0.8s ease forwards;
+    opacity: 0;
+}
+
+#debouches .card:nth-child(1) { animation-delay: 0.3s; }
+#debouches .card:nth-child(2) { animation-delay: 0.5s; }
+#debouches .card:nth-child(3) { animation-delay: 0.7s; }
+#debouches .card:nth-child(4) { animation-delay: 0.9s; }
+#debouches .card:nth-child(5) { animation-delay: 1.1s; }
+
+#formation h1 {
+    animation: fadeInDown 1s ease forwards;
+    animation-delay: 0.2s;
+    opacity: 0;
+}
+
+#formation h5 {
+    animation: slideInLeft 0.8s ease forwards;
+    opacity: 0;
+}
+
+#formation h5:nth-child(1) { animation-delay: 0.4s; }
+#formation h5:nth-child(2) { animation-delay: 0.6s; }
+#formation h5:nth-child(3) { animation-delay: 0.8s; }
+#formation h5:nth-child(4) { animation-delay: 1.0s; }
+
+#alumnis h1 {
+    animation: fadeInDown 1s ease forwards;
+    animation-delay: 0.2s;
+    opacity: 0;
+}
+
+.carousel-container {
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 0.5s;
+    opacity: 0;
+}
+
+#partenaires h1 {
+    animation: fadeInDown 1s ease forwards;
+    animation-delay: 0.2s;
+    opacity: 0;
+}
+
+#partenaires img {
+    animation: fadeInUp 1s ease forwards;
+    opacity: 0;
+}
+
+#partenaires img:nth-child(1) { animation-delay: 0.3s; }
+#partenaires img:nth-child(2) { animation-delay: 0.5s; }
+#partenaires img:nth-child(3) { animation-delay: 0.7s; }
+#partenaires img:nth-child(4) { animation-delay: 0.9s; }
+
+
+[class*="animate-"] {
+    will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
